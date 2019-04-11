@@ -180,6 +180,21 @@ thedata <- thedata %>% mutate_at(vars(starts_with("fDAS"),
                                       starts_with("mDAS"),
                                       starts_with("cmean")),
                                  funs(c = scale(.)))
+```
+
+```
+## Warning: funs() is soft deprecated as of dplyr 0.8.0
+## please use list() instead
+## 
+## # Before:
+## funs(name = f(.)
+## 
+## # After: 
+## list(name = ~f(.))
+## This warning is displayed once per session.
+```
+
+```r
 # computing couple level means and sd
 thedata <- thedata %>%
   rowwise() %>%
@@ -628,7 +643,7 @@ ggplot(fit.hazard, aes(x = time, y = hazard, color = main.effect)) +
   ggtitle("Likelihood of separation over time by mothers' report of conflict")
 ```
 
-![](rel-continuation-figs/mom conflict plot-1.png)<!-- -->
+![](rel-continuation-figs/mom_conflict_plot-1.png)<!-- -->
 
 ```r
 ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
@@ -640,7 +655,7 @@ ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
   ggtitle("Separation over time by mothers' report of conflict")
 ```
 
-![](rel-continuation-figs/mom conflict plot-2.png)<!-- -->
+![](rel-continuation-figs/mom_conflict_plot-2.png)<!-- -->
 
 ## visualizing association of mothers' satisfaction
 
@@ -657,7 +672,7 @@ ggplot(fit.hazard, aes(x = time, y = hazard, color = main.effect)) +
   ggtitle("Likelihood of separation over time by mothers' satisfaction")
 ```
 
-![](rel-continuation-figs/mom satisfaction plot-1.png)<!-- -->
+![](rel-continuation-figs/mom_satisfaction_plot-1.png)<!-- -->
 
 ```r
 ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
@@ -669,7 +684,7 @@ ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
   ggtitle("Separation over time by mothers' report of satisfaction")
 ```
 
-![](rel-continuation-figs/mom satisfaction plot-2.png)<!-- -->
+![](rel-continuation-figs/mom_satisfaction_plot-2.png)<!-- -->
 
 ## fitting a model to test association of fathers' reports
 
@@ -851,7 +866,7 @@ ggplot(fit.hazard, aes(x = time, y = hazard, color = main.effect)) +
   ggtitle("Likelihood of separation over time by fathers' report of conflict")
 ```
 
-![](rel-continuation-figs/dad conflict plots-1.png)<!-- -->
+![](rel-continuation-figs/dad_conflict_plots-1.png)<!-- -->
 
 ```r
 ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
@@ -863,7 +878,7 @@ ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
   ggtitle("Separation over time by fathers' report of conflict")
 ```
 
-![](rel-continuation-figs/dad conflict plots-2.png)<!-- -->
+![](rel-continuation-figs/dad_conflict_plots-2.png)<!-- -->
 
 ## fitting a model to test associations of couples' mean reports
 
@@ -1008,7 +1023,7 @@ ggplot(fit.hazard, aes(x = time, y = hazard, color = main.effect)) +
   ggtitle("Likelihood of separation over time by partners' average report of conflict")
 ```
 
-![](rel-continuation-figs/couple conflict plots-1.png)<!-- -->
+![](rel-continuation-figs/couple_conflict_plots-1.png)<!-- -->
 
 ```r
 ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
@@ -1020,7 +1035,7 @@ ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
   ggtitle("Separation over time by partners' average report of conflict")
 ```
 
-![](rel-continuation-figs/couple conflict plots-2.png)<!-- -->
+![](rel-continuation-figs/couple_conflict_plots-2.png)<!-- -->
 
 ## visualizing association of mean satisfaction
 
@@ -1037,7 +1052,7 @@ ggplot(fit.hazard, aes(x = time, y = hazard, color = main.effect)) +
   ggtitle("Likelihood of separation over time by partners' average report of satisfaction")
 ```
 
-![](rel-continuation-figs/couple satisfaction plots-1.png)<!-- -->
+![](rel-continuation-figs/couple_satisfaction_plots-1.png)<!-- -->
 
 ```r
 ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
@@ -1049,7 +1064,7 @@ ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
   ggtitle("Separation over time by partners' average report of satisfaction")
 ```
 
-![](rel-continuation-figs/couple satisfaction plots-2.png)<!-- -->
+![](rel-continuation-figs/couple_satisfaction_plots-2.png)<!-- -->
 
 ## fitting a model to test associations of sd of couples' reports
 
@@ -1228,7 +1243,7 @@ ggplot(fit.hazard, aes(x = time, y = hazard, color = main.effect)) +
   ggtitle("Likelihood of separation over time by the sd of partners' report of satisfaction")
 ```
 
-![](rel-continuation-figs/satisfaction agreement plot-1.png)<!-- -->
+![](rel-continuation-figs/satisfaction_agreement_plot-1.png)<!-- -->
 
 ```r
 ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
@@ -1240,7 +1255,7 @@ ggplot(fit.hazard, aes(x = time, y = survival, color = main.effect)) +
   ggtitle("Separation over time by the sd of partners' report of satisfaction")
 ```
 
-![](rel-continuation-figs/satisfaction agreement plot-2.png)<!-- -->
+![](rel-continuation-figs/satisfaction_agreement_plot-2.png)<!-- -->
 
 ## testing interactions between couples' mean and sd of conflict and satisfaction
 
@@ -1426,7 +1441,7 @@ ggplot(plotdata, aes(x = time,
   facet_grid(. ~ Satisfaction.Disagreement, labeller = label_both)
 ```
 
-![](rel-continuation-figs/conflict satisfaction plot-1.png)<!-- -->
+![](rel-continuation-figs/conflict_satisfaction_plot-1.png)<!-- -->
 
 ```r
 ggplot(plotdata, aes(x = time,
@@ -1441,7 +1456,7 @@ ggplot(plotdata, aes(x = time,
   facet_grid(. ~ Satisfaction.Disagreement, labeller = label_both)
 ```
 
-![](rel-continuation-figs/conflict satisfaction plot-2.png)<!-- -->
+![](rel-continuation-figs/conflict_satisfaction_plot-2.png)<!-- -->
 
 ## Three way interactions
 
@@ -1951,7 +1966,7 @@ ggplot(plotdata, aes(x = time,
   facet_grid(Satisfaction.Disagreement ~ Conflict.Level, labeller = label_both)
 ```
 
-![](rel-continuation-figs/three way plot1-1.png)<!-- -->
+![](rel-continuation-figs/three_way_plot1-1.png)<!-- -->
 
 ```r
 ggplot(plotdata, aes(x = time,
@@ -1966,7 +1981,7 @@ ggplot(plotdata, aes(x = time,
   facet_grid(Satisfaction.Disagreement ~ Conflict.Level, labeller = label_both)
 ```
 
-![](rel-continuation-figs/three way plot1-2.png)<!-- -->
+![](rel-continuation-figs/three_way_plot1-2.png)<!-- -->
 
 ### Visualizing the SD of Conflict x SD of Satisfaction x Satisfaction Level interaction
 
@@ -1992,7 +2007,7 @@ ggplot(plotdata, aes(x = time,
   facet_grid(Satisfaction.Disagreement ~ Satisfaction.Level, labeller = label_both)
 ```
 
-![](rel-continuation-figs/three way plot2-1.png)<!-- -->
+![](rel-continuation-figs/three_way_plot2-1.png)<!-- -->
 
 ```r
 ggplot(plotdata, aes(x = time,
@@ -2007,7 +2022,7 @@ ggplot(plotdata, aes(x = time,
   facet_grid(Satisfaction.Disagreement ~ Satisfaction.Level, labeller = label_both)
 ```
 
-![](rel-continuation-figs/three way plot2-2.png)<!-- -->
+![](rel-continuation-figs/three_way_plot2-2.png)<!-- -->
 
 ## Testing the 4-way interaction
 
